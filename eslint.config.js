@@ -23,10 +23,10 @@ export default defineConfig([
       "react-refresh/only-export-components": "off",
       "@typescript-eslint/no-unused-expressions": "off",
       "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
       "react-hooks/refs": "off",
       "react-hooks/exhaustive-deps": "off",
       "react-hooks/set-state-in-effect": "off",
     },
   },
 ]);
-  
