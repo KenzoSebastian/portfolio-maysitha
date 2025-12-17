@@ -172,9 +172,15 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 scroll-smooth;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .logo {
+    @apply w-6 md:w-8 hover:scale-110 transition-all;
   }
 }
