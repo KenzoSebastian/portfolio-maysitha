@@ -21,7 +21,7 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="fixed z-50 m-3 px-1 md:px-3 flex w-5/6 justify-center items-center">
+    <nav className="fixed z-50 m-3 md:px-3 flex w-5/6 justify-center items-center">
       <div className="flex-1 flex items-center gap-2">
         <DropdownMenu open={isMenuOpen} onOpenChange={() => setIsMenuOpen(!isMenuOpen)}>
           <DropdownMenuTrigger>
@@ -69,6 +69,6 @@ export const Navbar = () => {
       <div className="md:flex-1 flex justify-end">
         <ThemeToggle />
       </div>
-    </div>
+    </nav>
   );
 };

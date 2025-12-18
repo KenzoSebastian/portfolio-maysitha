@@ -37,22 +37,12 @@ export const HeroSection = () => {
   const { theme } = useTheme();
 
   return (
-    <section className="w-full h-screen flex flex-col lg:flex-row md:justify-center items-center gap-10 pt-20 md:pt-18">
-      <GlareHover className="hidden md:flex justify-center items-center" width="38rem" height="38rem">
-        <img
-          src="./img/hero.png"
-          alt="hero"
-          className="object-cover rounded-2xl w-full shadow-[5px_5px_10px_1px_rgba(0,0,0,0.4)]"
-        />
-      </GlareHover>
-
-      <GlareHover className="md:hidden flex justify-center items-center" width="20rem" height="20rem">
-        <img
-          src="./img/hero.png"
-          alt="hero"
-          className="object-cover rounded-2xl w-full shadow-[5px_5px_10px_1px_rgba(0,0,0,0.4)]"
-        />
-      </GlareHover>
+    <section className="w-full h-screen flex flex-col lg:flex-row items-center gap-10 pt-20 md:pt-27">
+      <div className="flex justify-end w-fit rounded-2xl lg:flex-1 px-5 md:px-0">
+        <GlareHover className="border-0 shadow-[5px_5px_10px_1px_rgba(0,0,0,0.4)] max-w-160 " >
+          <img src="./img/hero.png" alt="hero" className="object-cover w-full" />
+        </GlareHover>
+      </div>  
 
       <div className="px-5 md:px-0 overflow-hidden flex-1">
         <AnimatedContent
@@ -87,7 +77,7 @@ export const HeroSection = () => {
         </AnimatedContent>
         <BlurText
           text="Maysitha Angelica Sucipto"
-          className="text-center text-4xl md:text-7xl font-lora md:w-150 font-bold"
+          className="text-center text-4xl md:text-7xl font-lora md:max-w-150 font-bold"
         />
         <span className="text-xl md:text-3xl">I am </span>
         <TextType
