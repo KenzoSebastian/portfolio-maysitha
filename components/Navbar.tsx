@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+import GlassSurface from "@/components/motion/GlassSurface";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,14 +10,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Hamburger } from "@/components/Hamburger";
-import GlassSurface from "@/components/motion/GlassSurface";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { useState } from "react";
 
 const menuItems: { label: string; href: string }[] = [
   { label: "Home", href: "#" },
-  { label: "About", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const Navbar = () => {
@@ -27,12 +28,14 @@ export const Navbar = () => {
           <DropdownMenuTrigger>
             <Hamburger status={isMenuOpen} setStatus={setIsMenuOpen} />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-sidebar">
+          <DropdownMenuContent className="bg-sidebar font-storyScript">
             <DropdownMenuLabel>Menu</DropdownMenuLabel>
             <DropdownMenuSeparator className="bg-border" />
             {menuItems.map((item) => (
               <DropdownMenuItem key={item.label} onClick={() => setIsMenuOpen(false)}>
-                <a href={item.href}>{item.label}</a>
+                <a className="inline-block w-full h-full px-2 py-1.5" href={item.href}>
+                  {item.label}
+                </a>
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>
@@ -45,7 +48,7 @@ export const Navbar = () => {
         </div>
       </div>
       <GlassSurface
-        width={350}
+        width={330}
         height={60}
         displace={5}
         distortionScale={-150}
@@ -58,10 +61,12 @@ export const Navbar = () => {
         borderRadius={50}
         className="hidden md:block"
       >
-        <ul className="flex gap-10 font-storyScript text-xl">
+        <ul className="flex gap-10">
           {menuItems.map((item) => (
             <li key={item.label}>
-              <a href={item.href}>{item.label}</a>
+              <a className="font-storyScript text-2xl font-medium" href={item.href}>
+                {item.label}
+              </a>
             </li>
           ))}
         </ul>

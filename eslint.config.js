@@ -27,6 +27,7 @@ export default defineConfig([
       "react-hooks/refs": "off",
       "react-hooks/exhaustive-deps": "off",
       "react-hooks/set-state-in-effect": "off",
+      "react-hooks/purity": "off",
     },
   },
 ]);

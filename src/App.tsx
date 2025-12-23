@@ -1,7 +1,8 @@
+import DotGrid from "./components/motion/DotGrid";
+import { AboutSection } from "./sections/About";
+import { HeroSection } from "./sections/Hero";
 import { Navbar } from "../components/Navbar";
 import { useTheme } from "../components/ThemeProvider";
-import DotGrid from "./components/motion/DotGrid";
-import { HeroSection } from "./sections/Hero";
 
 function App() {
   const { theme } = useTheme();
@@ -32,6 +33,7 @@ function App() {
       <div className="w-11/12 md:w-5/6 flex flex-col items-center relative">
         <Navbar />
         <HeroSection />
+        <AboutSection />
       </div>
     </div>
   );

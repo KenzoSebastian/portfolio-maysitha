@@ -37,12 +37,12 @@ export const HeroSection = () => {
   const { theme } = useTheme();
 
   return (
-    <section className="w-full h-screen flex flex-col lg:flex-row items-center gap-10 pt-20 md:pt-27">
+    <section className="section flex flex-col lg:flex-row items-center gap-10 lg:pt-0">
       <div className="flex justify-end w-fit rounded-2xl lg:flex-1 px-5 md:px-0">
-        <GlareHover className="border-0 shadow-[5px_5px_10px_1px_rgba(0,0,0,0.4)] max-w-160 " >
+        <GlareHover className="border-0 shadow-[5px_5px_10px_1px_rgba(0,0,0,0.4)] max-w-160 ">
           <img src="./img/hero.png" alt="hero" className="object-cover w-full" />
         </GlareHover>
-      </div>  
+      </div>
 
       <div className="px-5 md:px-0 overflow-hidden flex-1">
         <AnimatedContent
@@ -65,7 +65,7 @@ export const HeroSection = () => {
                   <img
                     src={`/logo/${item.name + (theme === "dark" ? "-dark" : "")}.png`}
                     alt={item.name}
-                    className="logo"
+                    className="logo-medsos"
                   />
                 </a>
               </TooltipTrigger>
