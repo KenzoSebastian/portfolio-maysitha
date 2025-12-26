@@ -185,7 +185,7 @@
     @apply w-6 md:w-8 opacity-80 hover:scale-110 hover:opacity-100 transition-all;
   }
   section.section {
-    @apply w-full min-h-screen items-center pt-17 md:pt-27;
+    @apply w-full min-h-screen items-center pt-17 md:pt-27 overflow-hidden;
   }
   .no-drag {
   -webkit-user-drag: none;

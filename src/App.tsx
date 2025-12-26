@@ -3,6 +3,7 @@ import { AboutSection } from "./sections/About";
 import { HeroSection } from "./sections/Hero";
 import { Navbar } from "../components/Navbar";
 import { useTheme } from "../components/ThemeProvider";
+import { RecentWorks } from "./sections/Project";
 
 function App() {
   const { theme } = useTheme();
@@ -30,10 +31,11 @@ function App() {
         resistance={750}
         returnDuration={1.5}
       />
-      <div className="w-11/12 md:w-5/6 flex flex-col items-center relative">
+      <div className="w-11/12 md:w-5/6 lg:max-w-7xl flex flex-col items-center relative">
         <Navbar />
         <HeroSection />
         <AboutSection />
+        <RecentWorks />
       </div>
     </div>
   );

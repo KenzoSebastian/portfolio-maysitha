@@ -15,6 +15,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 const menuItems: { label: string; href: string }[] = [
   { label: "Home", href: "#" },
   { label: "About", href: "#about" },
+  { label: "Portfolio", href: "#recent-works" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -65,7 +66,7 @@ export const Navbar = () => {
 
         <div className="hidden md:flex justify-center flex-1">
           <GlassSurface
-            width={330}
+            width={380}
             height={60}
             displace={5}
             distortionScale={-150}
@@ -81,7 +82,7 @@ export const Navbar = () => {
               {menuItems.map((item) => (
                 <li key={item.label}>
                   <a
-                    className="font-storyScript text-2xl font-medium transition-opacity hover:opacity-50"
+                    className="font-storyScript text-xl font-medium transition-opacity hover:opacity-50"
                     href={item.href}
                   >
                     {item.label}
