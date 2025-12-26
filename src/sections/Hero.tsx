@@ -40,7 +40,7 @@ export const HeroSection = () => {
     <section className="section flex flex-col lg:flex-row items-center gap-10 lg:pt-0">
       <div className="flex justify-end w-fit rounded-2xl lg:flex-1 px-5 md:px-0">
         <GlareHover className="border-0 shadow-[5px_5px_10px_1px_rgba(0,0,0,0.4)] max-w-160 ">
-          <img src="./img/hero.png" alt="hero" className="object-cover w-full" />
+          <img src="./img/hero.png" alt="hero" draggable={false} className="object-cover w-full no-drag" />
         </GlareHover>
       </div>
 
@@ -65,7 +65,8 @@ export const HeroSection = () => {
                   <img
                     src={`/logo/${item.name + (theme === "dark" ? "-dark" : "")}.png`}
                     alt={item.name}
-                    className="logo-medsos"
+                    draggable={false}
+                    className="logo-medsos no-drag"
                   />
                 </a>
               </TooltipTrigger>

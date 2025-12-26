@@ -1,28 +1,36 @@
 import Stack from "@/components/motion/Stack";
+import { motion } from "motion/react";
 
 export const AboutSection = () => {
   return (
     <section id="about" className="section flex flex-col">
-      <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold font-inter mb-5 md:mb-10">About Me</h1>
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-4xl md:text-5xl lg:text-7xl font-semibold font-inter mb-5 md:mb-10"
+      >
+        About Me
+      </motion.h1>
       <div className="flex flex-col items-center lg:flex-row gap-10 md:gap-14 lg:gap-16">
         <div className="text-base sm:text-lg md:text-xl md:max-w-180 text-justify leading-relaxed flex flex-col gap-4 indent-10 flex-1 order-2 lg:order-0">
-          <p>
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
             I am a professional fashion model with international runway experience and a strong passion for
             the creative industry. I have walked the runway in Paris and have participated in major fashion
             events such as Indonesia Trend Fashion Week, collaborating with designers to present collections
             with confidence, elegance, and professionalism.
-          </p>
-          <p>
+          </motion.p>
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
             Beyond runway modeling, I am also active in acting projects and professional photoshoots, allowing
             me to express versatility in front of the camera. My experience includes fashion editorials,
             creative concepts, and commercial shoots, where I bring character, expression, and discipline to
             every project.
-          </p>
-          <p>
+          </motion.p>
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
             I am known for my strong work ethic, adaptability, and commitment to continuous growth through
             training and practice. I enjoy working closely with designers, photographers, and creative teams
             to bring visions to life and represent brands with confidence and authenticity.
-          </p>
+          </motion.p>
         </div>
         <div className="w-75 sm:w-110 md:w-125 lg:w-100 aspect-square">
           <Stack
@@ -39,7 +47,7 @@ export const AboutSection = () => {
                 src={`./img/stack${i + 1}.JPG`}
                 alt={`stack-${i + 1}`}
                 draggable={false}
-                className="w-full h-full object-cover no-drag"
+                className="w-full h-full object-cover no-drag shadow-[5px_5px_15px_rgba(0,0,0,0.9)]"
               />
             ))}
           />
