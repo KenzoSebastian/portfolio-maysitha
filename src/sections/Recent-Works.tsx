@@ -27,11 +27,11 @@ const galleryItems = [
 export const RecentWorks = () => {
   return (
     <section
-      className="w-full min-h-screen items-center pt-17 md:pt-27 overflow-hidden"
+      className="section"
       id="recent-works"
     >
       <div className="flex justify-between items-end">
-        <div className="mx-10">
+        <div>
           <motion.h2
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -56,10 +56,10 @@ export const RecentWorks = () => {
         </a>
       </div>
       {/* Container Slider */}
-      <div className="w-full mx-10 mt-3">
+      <div className="w-full mt-3">
         <CircularGallery
           bend={1}
-          scrollSpeed={4}
+          scrollSpeed={33}
           items={galleryItems}
           textColor="var(--foreground)"
           borderRadius={0.05}
