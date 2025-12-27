@@ -4,6 +4,7 @@ import { HeroSection } from "./sections/Hero";
 import { Navbar } from "../components/Navbar";
 import { useTheme } from "../components/ThemeProvider";
 import { RecentWorks } from "./sections/Recent-Works";
+import { RunwayHistory } from "./sections/Runway-History";
 
 function App() {
   const { theme } = useTheme();
@@ -36,6 +37,7 @@ function App() {
         <HeroSection />
         <AboutSection />
         <RecentWorks />
+        <RunwayHistory />
       </div>
     </div>
   );

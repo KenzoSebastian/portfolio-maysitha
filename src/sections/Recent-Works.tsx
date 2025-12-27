@@ -26,19 +26,16 @@ const galleryItems = [
 
 export const RecentWorks = () => {
   return (
-    <section
-      className="section"
-      id="recent-works"
-    >
+    <section className="section" id="recent-works">
       <div className="flex justify-between items-end">
         <div>
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             className="font-lora text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic font-semibold"
           >
             Recent Works
-          </motion.h2>
+          </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -56,10 +53,20 @@ export const RecentWorks = () => {
         </a>
       </div>
       {/* Container Slider */}
-      <div className="w-full mt-3">
+      <div className="w-full mt-3 hidden md:block">
         <CircularGallery
           bend={1}
-          scrollSpeed={33}
+          scrollSpeed={3}
+          items={galleryItems}
+          textColor="var(--foreground)"
+          borderRadius={0.05}
+          scrollEase={0.04}
+        />
+      </div>
+      <div className="w-full mt-3 md:hidden">
+        <CircularGallery
+          bend={0}
+          scrollSpeed={3}
           items={galleryItems}
           textColor="var(--foreground)"
           borderRadius={0.05}

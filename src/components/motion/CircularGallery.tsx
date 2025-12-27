@@ -677,7 +677,7 @@ export default function CircularGallery({
   bend = 3,
   textColor = "#ffffff",
   borderRadius = 0.05,
-  font = "bold 25px Inter",
+  font = "bold 25px Geist",
   scrollSpeed = 2,
   scrollEase = 0.05,
 }: CircularGalleryProps) {

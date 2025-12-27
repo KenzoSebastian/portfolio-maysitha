@@ -16,7 +16,7 @@ export const AboutSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.3 }}
           >
             I am a professional fashion model with international runway experience and a strong passion for
             the creative industry. I have walked the runway in Paris and have participated in major fashion
@@ -26,7 +26,7 @@ export const AboutSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.3 }}
           >
             Beyond runway modeling, I am also active in acting projects and professional photoshoots, allowing
             me to express versatility in front of the camera. My experience includes fashion editorials,
@@ -36,7 +36,7 @@ export const AboutSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.3 }}
           >
             I am known for my strong work ethic, adaptability, and commitment to continuous growth through
             training and practice. I enjoy working closely with designers, photographers, and creative teams
