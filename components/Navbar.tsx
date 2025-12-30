@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Hamburger } from "@/components/Hamburger";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import GradualBlur from "@/components/motion/GradualBlur";
 
 const menuItems: { label: string; href: string }[] = [
   { label: "Home", href: "#" },
@@ -24,18 +25,9 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center items-center py-4">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          backgroundColor: "oklch(from var(--background) l c h / 0.5)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
-          maskImage: "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
-        }}
-      />
+      <GradualBlur position="top" strength={3} target="parent" zIndex={10} />
 
-      <div className="relative z-10 flex w-full max-w-7xl px-6 items-center">
+      <div className="relative z-20 flex w-full max-w-7xl px-6 items-center">
         <div className="flex-1 flex items-center gap-4">
           <DropdownMenu open={isMenuOpen} onOpenChange={() => setIsMenuOpen(!isMenuOpen)}>
             <DropdownMenuTrigger className="focus:outline-none">
