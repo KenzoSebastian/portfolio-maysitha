@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { HeaderSection } from "@/components/HeaderSection.";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const runwayData = [
   {
@@ -8,26 +10,28 @@ const runwayData = [
     event: "Brand Ambassador Mr A",
     location: "Upcoming Project",
     role: "Official Ambassador",
+    certificate: "./certificate/BA-MRA-A-2026.pdf",
   },
   {
     timeframe: "Dec 2025",
     event: "Bali Tendance & Annual Show Mr A",
     location: "Bali & Jakarta",
     role: "Runway Model & Best Student IMC Center",
+    certificate: "./certificate/annual-show-2025.pdf",
   },
   {
     timeframe: "Oct 2025",
     event: "Paris Fashion Week",
     location: "Paris, France",
     role: "International Runway Model",
-    certificate: "./certificate/paris-fashion-week-2025.jpeg",
+    certificate: "./certificate/paris-fashion-week-2025.pdf",
   },
   {
     timeframe: "July 2025",
     event: "Indonesia Trend Fashion Week (ITFW)",
     location: "Jakarta",
     role: "Runway Model",
-    certificate: "./certificate/itfw-2025.png",
+    certificate: "./certificate/itfw-2025.pdf",
   },
   {
     timeframe: "June 2025",
@@ -46,98 +50,98 @@ const runwayData = [
     event: "IMC CENTER School Portfolio",
     location: "Professional Studio",
     role: "Commercial & Content Model",
+    certificate: "./certificate/best-student-IMC-Center-2025.pdf",
   },
 ];
 
-export const RunwayHistory = () => {
+export const RunwayHistorySection = () => {
   const [activeCertificate, setActiveCertificate] = useState<string | null>(null);
 
   return (
     <section className="section py-20" id="runway-history">
-      <div className="flex flex-col items-end w-full container mx-auto px-6">
-        <motion.h1
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-lora text-4xl sm:text-6xl lg:text-8xl italic font-semibold text-end text-foreground leading-none"
-        >
-          Runway History
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-right"
-        >
-          <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.4em] text-muted-foreground leading-relaxed">
-            From professional training at IMC Center to the prestigious stages of Paris Fashion Week and
-            upcoming 2026 Ambassador roles.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: "100%" }}
-          transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
-          className="h-px bg-linear-to-l from-primary to-transparent mt-10"
-        />
-      </div>
-
-      <div className="mt-20 w-full max-w-5xl ml-auto relative pr-6 md:pr-12">
+      <HeaderSection
+        title="Runway History"
+        subTitle="From professional training at IMC Center to the prestigious stages of Paris Fashion Week and upcoming 2026 Ambassador roles."
+        textAlign="right"
+      />
+      <div className="w-full max-w-5xl ml-auto relative pr-6 md:pr-12">
         <motion.div
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           transition={{ duration: 4, ease: "easeInOut" }}
+          viewport={{ once: true }}
           style={{ originY: 0 }}
           className="absolute right-8 md:right-[56.5px] rounded-full top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-primary/50 to-transparent"
         />
 
         {runwayData.map((item, index) => (
-          <div className="relative flex justify-end pb-10 sm:pb-15 md:pb-20 last:pb-10 pr-12">
+          <div className="relative flex justify-end pb-10 sm:pb-15 md:pb-20 last:pb-10 pr-15 sm:pr-18">
             <motion.div
               key={index}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="text-right group mr-23 md:mr-40"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="text-right group mr-12 md:mr-40"
             >
-              <div className="flex gap-5 justify-end items-center">
+              <div className="flex gap-2 md:gap-3 lg:gap-4 justify-end items-center mb-3">
                 {item.certificate && (
-                  <span
-                    className="px-3 py-1 rounded-full border border-primary/50 text-[8px] sm:text-[10px] lg:text-xs uppercase tracking-widest mb-3 transition-colors hover:bg-secondary text-foreground flex items-center gap-2 cursor-pointer"
-                    onClick={() => setActiveCertificate(item.event)}
-                  >
-                    <ExternalLink width={20} height={20} /> view certificate
-                  </span>
+                  <div>
+                    <span
+                      className="px-3 py-1 rounded-full border border-primary/50 text-xs uppercase tracking-widest transition-colors hover:bg-secondary text-foreground items-center gap-2 cursor-pointer hidden lg:flex whitespace-nowrap"
+                      onClick={() => setActiveCertificate(item.certificate)}
+                    >
+                      <ExternalLink className="w-5" /> view certificate
+                    </span>
+                    <Tooltip>
+                      <TooltipTrigger className="lg:hidden">
+                        <span
+                          className="rounded-full w-6 h-6 sm:w-7 sm:h-7 border border-primary/50 transition-colors hover:bg-secondary text-foreground items-center justify-center cursor-pointer flex"
+                          onClick={() => setActiveCertificate(item.certificate)}
+                        >
+                          <ExternalLink className="w-3 sm:w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top">
+                        <span>View Certificate</span>
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
                 )}
-                {item.certificate && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={activeCertificate === item.event ? { opacity: 1 } : { opacity: 0 }}
-                    className={`fixed top-0 bottom-0 right-0 left-0 bg-black/40 flex justify-center items-center z-50 ${
-                      activeCertificate === item.event
-                        ? "opacity-100 visible"
-                        : "opacity-0 invisible pointer-events-none"
-                    }
-                    }`}
+                {activeCertificate && (
+                  <div
+                    className="fixed inset-0 bg-black/10 backdrop-blur-md z-200 flex justify-center items-center p-4 md:p-10"
                     onClick={() => setActiveCertificate(null)}
                   >
-                    <motion.img
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={
-                        activeCertificate === item.event
-                          ? { scale: 1, opacity: 1 }
-                          : { scale: 0.5, opacity: 0 }
-                      }
-                      src={item.certificate}
-                      alt={item.event}
-                      draggable={false}
-                      className="max-w-[85%] max-h-[85%] object-contain rounded-xl shadow-2xl"
-                    />
-                  </motion.div>
+                    <motion.div
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      /* Menggunakan w-full dan aspect ratio agar sama dengan section certificate */
+                      className="relative w-full max-w-5xl aspect-3/2 bg-zinc-900 rounded-lg shadow-2xl overflow-hidden flex justify-center items-center"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {/* Tombol Close identik */}
+                      <button
+                        className="absolute top-4 right-4 z-210 bg-white/10 hover:bg-white/20 text-white w-8 h-8 rounded-full transition-all flex items-center justify-center"
+                        onClick={() => setActiveCertificate(null)}
+                      >
+                        ✕
+                      </button>
+
+                      {/* Container PDF dengan Masking Scrollbar */}
+                      <div className="w-full h-full flex justify-center items-center overflow-hidden">
+                        <iframe
+                          src={`${activeCertificate}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                          className="w-[102%] h-[102%] border-none"
+                          style={{
+                            msOverflowStyle: "none",
+                            scrollbarWidth: "none",
+                          }}
+                        />
+                      </div>
+                    </motion.div>
+                  </div>
                 )}
-                <span className="inline-block px-3 py-1 rounded-full border border-primary/50 text-[8px] sm:text-[10px] lg:text-xs uppercase tracking-widest text-primary mb-3 transition-colors group-hover:bg-primary group-hover:text-white">
+                <span className="px-1 md:px-3 py-1 inline-block rounded-full border border-primary/50 text-[8px] sm:text-[10px] md:text-xs uppercase tracking-widest text-primary transition-colors group-hover:bg-primary whitespace-nowrap group-hover:text-white">
                   {item.role}
                 </span>
               </div>
@@ -150,7 +154,7 @@ export const RunwayHistory = () => {
               </p>
             </motion.div>
 
-            <div className="max-w-20 md:max-w-none text-end absolute right-10 top-3">
+            <div className="max-w-20 md:max-w-none text-end absolute right-7 md:right-10 top-3">
               <span className="font-sans text-xs sm:text-sm md:text-base font-black tracking-tighter text-foreground/50 italic">
                 {item.timeframe}
               </span>
@@ -159,6 +163,7 @@ export const RunwayHistory = () => {
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 300, delay: index * 0.15 + 0.1 }}
               className="absolute -right-0.5 top-3 w-6 h-6 rounded-full bg-background flex items-center justify-center z-10"
             >

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Pinyon+Script&family=Story+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Pinyon+Script&family=Story+Script&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
@@ -187,12 +187,18 @@
   section.section {
     @apply w-full items-center pt-17 md:pt-27;
   }
+  .header-section-title {
+    @apply font-lora text-4xl sm:text-5xl md:text-6xl italic font-semibold text-foreground leading-none;
+  }
+  .header-section-subtitle {
+    @apply font-sans text-[8px] sm:text-[10px] md:text-xs uppercase tracking-[0.4em] text-muted-foreground leading-relaxed;
+  }
   .no-drag {
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
-  user-select: none;
-}
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+  }
 }

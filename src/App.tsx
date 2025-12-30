@@ -3,8 +3,9 @@ import { AboutSection } from "./sections/About";
 import { HeroSection } from "./sections/Hero";
 import { Navbar } from "../components/Navbar";
 import { useTheme } from "../components/ThemeProvider";
-import { RecentWorks } from "./sections/Recent-Works";
-import { RunwayHistory } from "./sections/Runway-History";
+import { CertificateSection } from "./sections/Certificate.";
+import { RecentWorksSection } from "./sections/Recent-Works";
+import { RunwayHistorySection } from "./sections/Runway-History";
 
 function App() {
   const { theme } = useTheme();
@@ -36,8 +37,9 @@ function App() {
         <Navbar />
         <HeroSection />
         <AboutSection />
-        <RecentWorks />
-        <RunwayHistory />
+        <RecentWorksSection />
+        <RunwayHistorySection />
+        <CertificateSection />
       </div>
     </div>
   );

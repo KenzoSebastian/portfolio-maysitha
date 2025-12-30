@@ -24,26 +24,26 @@ const galleryItems = [
   },
 ];
 
-export const RecentWorks = () => {
+export const RecentWorksSection = () => {
   return (
     <section className="section" id="recent-works">
-      <div className="flex justify-between items-end">
+      <div className="flex justify-between items-center">
         <div>
           <motion.h1
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="font-lora text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic font-semibold"
+            className="header-section-title"
           >
             Recent Works
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="opacity-80 mt-2 tracking-widest uppercase text-[8px] sm:text-[10px] md:text-xs"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-2 sm:mt-3 md:mt-4 max-w-2xl text-left"
           >
-            Selected highlights 2024—2025
-          </motion.p>
+            <p className="header-section-subtitle">Selected highlights 2024—2025</p>
+          </motion.div>
         </div>
         <a
           href="#portfolio"
