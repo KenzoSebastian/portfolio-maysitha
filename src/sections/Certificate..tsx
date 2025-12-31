@@ -1,4 +1,5 @@
 import { HeaderSection } from "@/components/HeaderSection.";
+import { PdfOverlay } from "@/components/PdfOverlay";
 import { motion } from "motion/react";
 import { useState } from "react";
 
@@ -72,7 +73,7 @@ export const CertificateSection = () => {
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
 
   return (
-    <section className="section py-20" id="certificates">
+    <section className="section" id="certificates">
       <HeaderSection
         title="Certifications"
         subTitle="A testament to professional training, excellence, and dedication in the modeling and creative industry."
@@ -109,28 +110,7 @@ export const CertificateSection = () => {
       </div>
 
       {selectedPdf && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-md z-60 flex justify-center items-center p-4"
-          onClick={() => setSelectedPdf(null)}
-        >
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="relative w-125 sm:w-150 md:w-175 lg:w-200 max-w-4xl h-77 sm:h-105 md:h-122 lg:h-140 bg-transparent rounded-lg shadow-3xl overflow-hidden flex justify-center items-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="w-full h-full overflow-hidden relative">
-              <iframe
-                src={`${selectedPdf}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                className="absolute top-0 left-[-2%] w-[104%] h-[104%] border-none"
-                style={{
-                  msOverflowStyle: "none",
-                  scrollbarWidth: "none",
-                }}
-              />
-            </div>
-          </motion.div>
-        </div>
+        <PdfOverlay selectedPdf={selectedPdf} setSelectedPdf={setSelectedPdf} />
       )}
     </section>
   );

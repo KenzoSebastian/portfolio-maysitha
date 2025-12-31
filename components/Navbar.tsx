@@ -14,9 +14,10 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import GradualBlur from "@/components/motion/GradualBlur";
 
 const menuItems: { label: string; href: string }[] = [
-  { label: "Home", href: "#" },
   { label: "About", href: "#about" },
   { label: "Portfolio", href: "#recent-works" },
+  { label: "Runway History", href: "#runway-history" },
+  { label: "Certificate", href: "#certificates" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -46,19 +47,20 @@ export const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <div className="flex flex-col select-none">
-            <span className="font-sans text-xl md:text-2xl font-bold tracking-[0.3em] uppercase leading-none">
+          <a href="#" className="flex flex-col select-none">
+            <span className="font-sans text-xl md:text-[22px] lg:text-3xl font-bold tracking-[0.3em] uppercase leading-none">
               M.A.S
             </span>
-            <span className="font-sans text-[10px] md:text-xs tracking-widest opacity-80 uppercase">
+            <span className="font-sans text-[10px] md:text-[11px] lg:text-[13px] tracking-widest opacity-80 uppercase">
               Model Portfolio
             </span>
-          </div>
+          </a>
         </div>
 
         <div className="hidden md:flex justify-center flex-1">
+          {/* large screen */}
           <GlassSurface
-            width={380}
+            width={580}
             height={60}
             displace={5}
             distortionScale={-150}
@@ -69,12 +71,42 @@ export const Navbar = () => {
             opacity={0.8}
             mixBlendMode="screen"
             borderRadius={50}
+            className="hidden lg:block"
           >
             <ul className="flex gap-10">
               {menuItems.map((item) => (
                 <li key={item.label}>
                   <a
                     className="font-storyScript text-xl font-medium transition-opacity hover:opacity-50"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </GlassSurface>
+
+          {/* medium screen */}
+          <GlassSurface
+            width={420}
+            height={60}
+            displace={5}
+            distortionScale={-150}
+            redOffset={5}
+            greenOffset={15}
+            blueOffset={25}
+            brightness={60}
+            opacity={0.8}
+            mixBlendMode="screen"
+            borderRadius={50}
+            className="lg:hidden"
+          >
+            <ul className="flex gap-4">
+              {menuItems.map((item) => (
+                <li key={item.label}>
+                  <a
+                    className="font-storyScript text-[18px] font-medium transition-opacity hover:opacity-50"
                     href={item.href}
                   >
                     {item.label}

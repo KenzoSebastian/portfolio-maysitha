@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { HeaderSection } from "@/components/HeaderSection.";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { PdfOverlay } from "@/components/PdfOverlay";
 
 const runwayData = [
   {
@@ -58,7 +59,7 @@ export const RunwayHistorySection = () => {
   const [activeCertificate, setActiveCertificate] = useState<string | null>(null);
 
   return (
-    <section className="section py-20" id="runway-history">
+    <section className="section" id="runway-history">
       <HeaderSection
         title="Runway History"
         subTitle="From professional training at IMC Center to the prestigious stages of Paris Fashion Week and upcoming 2026 Ambassador roles."
@@ -86,12 +87,14 @@ export const RunwayHistorySection = () => {
               <div className="flex gap-2 md:gap-3 lg:gap-4 justify-end items-center mb-3">
                 {item.certificate && (
                   <div>
+                    {/* desktop */}
                     <span
                       className="px-3 py-1 rounded-full border border-primary/50 text-xs uppercase tracking-widest transition-colors hover:bg-secondary text-foreground items-center gap-2 cursor-pointer hidden lg:flex whitespace-nowrap"
                       onClick={() => setActiveCertificate(item.certificate)}
                     >
                       <ExternalLink className="w-5" /> view certificate
                     </span>
+                    {/* mobile */}
                     <Tooltip>
                       <TooltipTrigger className="lg:hidden">
                         <span
@@ -107,45 +110,10 @@ export const RunwayHistorySection = () => {
                     </Tooltip>
                   </div>
                 )}
-                {activeCertificate && (
-                  <div
-                    className="fixed inset-0 bg-black/10 backdrop-blur-md z-200 flex justify-center items-center p-4 md:p-10"
-                    onClick={() => setActiveCertificate(null)}
-                  >
-                    <motion.div
-                      initial={{ scale: 0.5, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      /* Menggunakan w-full dan aspect ratio agar sama dengan section certificate */
-                      className="relative w-full max-w-5xl aspect-3/2 bg-zinc-900 rounded-lg shadow-2xl overflow-hidden flex justify-center items-center"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {/* Tombol Close identik */}
-                      <button
-                        className="absolute top-4 right-4 z-210 bg-white/10 hover:bg-white/20 text-white w-8 h-8 rounded-full transition-all flex items-center justify-center"
-                        onClick={() => setActiveCertificate(null)}
-                      >
-                        ✕
-                      </button>
-
-                      {/* Container PDF dengan Masking Scrollbar */}
-                      <div className="w-full h-full flex justify-center items-center overflow-hidden">
-                        <iframe
-                          src={`${activeCertificate}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                          className="w-[102%] h-[102%] border-none"
-                          style={{
-                            msOverflowStyle: "none",
-                            scrollbarWidth: "none",
-                          }}
-                        />
-                      </div>
-                    </motion.div>
-                  </div>
-                )}
                 <span className="px-1 md:px-3 py-1 inline-block rounded-full border border-primary/50 text-[8px] sm:text-[10px] md:text-xs uppercase tracking-widest text-primary transition-colors group-hover:bg-primary whitespace-nowrap group-hover:text-white">
                   {item.role}
                 </span>
               </div>
-
               <h3 className="font-lora text-xl sm:text-2xl md:text-3xl lg:text-4xl italic font-medium text-foreground leading-tight">
                 {item.event}
               </h3>
@@ -171,6 +139,9 @@ export const RunwayHistorySection = () => {
             </motion.div>
           </div>
         ))}
+        {activeCertificate && (
+          <PdfOverlay selectedPdf={activeCertificate!} setSelectedPdf={setActiveCertificate} />
+        )}
       </div>
     </section>
   );
