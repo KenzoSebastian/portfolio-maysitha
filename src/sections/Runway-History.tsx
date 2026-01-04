@@ -1,11 +1,10 @@
-import { motion } from "motion/react";
-import { ChevronDown, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { ContainerSectionLimit } from "@/components/ContainerSectionLimit";
 import { HeaderSection } from "@/components/HeaderSection.";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { PdfOverlay } from "@/components/PdfOverlay";
-import GradualBlurMemo from "@/components/motion/GradualBlur";
-import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { ExternalLink } from "lucide-react";
+import { motion } from "motion/react";
+import { useState } from "react";
 
 const runwayData = [
   {
@@ -59,13 +58,9 @@ const runwayData = [
 
 export const RunwayHistorySection = () => {
   const [activeCertificate, setActiveCertificate] = useState<string | null>(null);
-  const [collapsed, setCollapsed] = useState(true);
 
   return (
-    <section
-      className={`section ${collapsed ? "max-h-225 overflow-hidden" : "max-h-auto"}`}
-      id="runway-history"
-    >
+    <ContainerSectionLimit idSection="runway-history">
       <HeaderSection
         title="Runway History"
         subTitle="From professional training at IMC Center to the prestigious stages of Paris Fashion Week and upcoming 2026 Ambassador roles."
@@ -150,17 +145,6 @@ export const RunwayHistorySection = () => {
         )}
       </div>
 
-      {collapsed && (
-        <div className="absolute bottom-0 left-0 right-0">
-          <GradualBlurMemo position="bottom" strength={3} target="parent" zIndex={1} />
-          <Button
-            onClick={() => setCollapsed(false)}
-            className="z-2 w-20 h-6 sm:w-23 sm:h-8 md:w-25 md:h-9 text-[9px] sm:text-[11px] md:text-[13px] flex justify-center items-center absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full opacity-70 hover:opacity-100"
-          >
-            <ChevronDown className="w-7 h-7 sm:w-9 sm:h-9 md:w-15 md:h-15" /> view more
-          </Button>
-        </div>
-      )}
-    </section>
+    </ContainerSectionLimit>
   );
 };

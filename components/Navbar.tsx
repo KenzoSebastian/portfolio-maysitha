@@ -13,11 +13,12 @@ import { Hamburger } from "@/components/Hamburger";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import GradualBlur from "@/components/motion/GradualBlur";
 
-const menuItems: { label: string; href: string }[] = [
+const menuItems: { label: string; href: string; class?: string }[] = [
   { label: "About", href: "#about" },
   { label: "Portfolio", href: "#recent-works" },
-  { label: "Runway History", href: "#runway-history" },
+  { label: "Runway History", href: "#runway-history", class: "hidden lg:block" },
   { label: "Certificate", href: "#certificates" },
+  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -60,7 +61,7 @@ export const Navbar = () => {
         <div className="hidden md:flex justify-center flex-1">
           {/* large screen */}
           <GlassSurface
-            width={580}
+            width={620}
             height={60}
             displace={5}
             distortionScale={-150}
@@ -73,7 +74,7 @@ export const Navbar = () => {
             borderRadius={50}
             className="hidden lg:block"
           >
-            <ul className="flex gap-10">
+            <ul className="flex gap-9">
               {menuItems.map((item) => (
                 <li key={item.label}>
                   <a
@@ -89,7 +90,7 @@ export const Navbar = () => {
 
           {/* medium screen */}
           <GlassSurface
-            width={420}
+            width={410}
             height={60}
             displace={5}
             distortionScale={-150}
@@ -102,9 +103,9 @@ export const Navbar = () => {
             borderRadius={50}
             className="lg:hidden"
           >
-            <ul className="flex gap-4">
+            <ul className="flex gap-6">
               {menuItems.map((item) => (
-                <li key={item.label}>
+                <li key={item.label} className={item.class}>
                   <a
                     className="font-storyScript text-[18px] font-medium transition-opacity hover:opacity-50"
                     href={item.href}

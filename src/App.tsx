@@ -6,6 +6,7 @@ import { useTheme } from "../components/ThemeProvider";
 import { CertificateSection } from "./sections/Certificate.";
 import { RecentWorksSection } from "./sections/Recent-Works";
 import { RunwayHistorySection } from "./sections/Runway-History";
+import { BlogSection } from "./sections/Blog";
 
 function App() {
   const { theme } = useTheme();
@@ -40,6 +41,7 @@ function App() {
         <RecentWorksSection />
         <RunwayHistorySection />
         <CertificateSection />
+        <BlogSection />
       </div>
     </div>
   );
