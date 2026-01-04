@@ -185,7 +185,7 @@
     @apply w-6 md:w-8 opacity-80 hover:scale-110 hover:opacity-100 transition-all;
   }
   section.section {
-    @apply w-full items-center pt-24 md:pt-27;
+    @apply w-full relative items-center pt-24 md:pt-27;
   }
   .header-section-title {
     @apply font-lora text-4xl sm:text-5xl md:text-[54px] lg:text-6xl italic font-semibold text-foreground leading-none;
