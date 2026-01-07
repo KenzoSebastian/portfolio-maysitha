@@ -28,7 +28,7 @@ export const ContainerSectionLimit = ({
   return (
     <section
       ref={sectionRef}
-      className={`section relative transition-all duration-500 ${
+      className={`section relative ${
         collapsed ? "max-h-225 overflow-hidden" : "max-h-none"
       }`}
       id={idSection}

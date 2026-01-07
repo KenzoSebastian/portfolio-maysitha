@@ -7,6 +7,7 @@ import { CertificateSection } from "./sections/Certificate.";
 import { RecentWorksSection } from "./sections/Recent-Works";
 import { RunwayHistorySection } from "./sections/Runway-History";
 import { BlogSection } from "./sections/Blog";
+import { ContactSection } from "./sections/Contact";
 
 function App() {
   const { theme } = useTheme();
@@ -16,11 +17,9 @@ function App() {
     return computedStyle.getPropertyValue(varName).trim();
   };
 
-  if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
+  theme === "dark"
+    ? document.documentElement.classList.add("dark")
+    : document.documentElement.classList.remove("dark");
 
   return (
     <div className="w-full min-h-screen h-2500 flex flex-col items-center relative">
@@ -42,6 +41,7 @@ function App() {
         <RunwayHistorySection />
         <CertificateSection />
         <BlogSection />
+        <ContactSection />
       </div>
     </div>
   );
