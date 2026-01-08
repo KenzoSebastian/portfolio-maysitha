@@ -5,7 +5,7 @@ import TextType from "@/components/motion/TextType";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useTheme } from "../../components/ThemeProvider";
 
-const medsos = [
+export const medsos = [
   {
     name: "instagram",
     link: "https://www.instagram.com/thatgirlmay_angel?igsh=aWIwcWNoeGplNGhh&utm_source=qr",

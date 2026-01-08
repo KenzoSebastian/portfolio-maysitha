@@ -8,6 +8,7 @@ import { RecentWorksSection } from "./sections/Recent-Works";
 import { RunwayHistorySection } from "./sections/Runway-History";
 import { BlogSection } from "./sections/Blog";
 import { ContactSection } from "./sections/Contact";
+import { FooterSection } from "./sections/Footer";
 
 function App() {
   const { theme } = useTheme();
@@ -22,7 +23,7 @@ function App() {
     : document.documentElement.classList.remove("dark");
 
   return (
-    <div className="w-full min-h-screen h-2500 flex flex-col items-center relative">
+    <div className="w-full min-h-screen flex flex-col items-center relative">
       <DotGrid
         dotSize={4}
         gap={15}
@@ -43,6 +44,7 @@ function App() {
         <BlogSection />
         <ContactSection />
       </div>
+      <FooterSection />
     </div>
   );
 }

@@ -169,6 +169,11 @@
   --font-pinyonScript: "Pinyon Script", sans-serif;
   --font-lora: "Lora", serif;
   --font-inter: "Inter", sans-serif;
+
+  --breakpoint-xxs: 20rem;
+  --breakpoint-xs: 30rem;
+  --breakpoint-3xl: 120rem;
+  --breakpoint-4xl: 150rem;
 }
 
 @layer base {

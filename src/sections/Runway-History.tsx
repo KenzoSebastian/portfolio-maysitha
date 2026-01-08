@@ -60,7 +60,7 @@ export const RunwayHistorySection = () => {
   const [activeCertificate, setActiveCertificate] = useState<string | null>(null);
 
   return (
-    <ContainerSectionLimit idSection="runway-history">
+    <ContainerSectionLimit idSection="runway">
       <HeaderSection
         title="Runway History"
         subTitle="From professional training at IMC Center to the prestigious stages of Paris Fashion Week and upcoming 2026 Ambassador roles."

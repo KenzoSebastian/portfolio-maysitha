@@ -13,10 +13,10 @@ import { Hamburger } from "@/components/Hamburger";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import GradualBlur from "@/components/motion/GradualBlur";
 
-const menuItems: { label: string; href: string; class?: string }[] = [
+export const menuItems: { label: string; href: string; class?: string }[] = [
   { label: "About", href: "#about" },
   { label: "Portfolio", href: "#recent-works" },
-  { label: "Runway History", href: "#runway-history", class: "hidden lg:block" },
+  { label: "Runway", href: "#runway", class: "hidden lg:block" },
   { label: "Certificate", href: "#certificates" },
   { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
