@@ -1,5 +1,7 @@
 import CircularGallery from "@/components/motion/CircularGallery";
+import { PortfolioOverlay } from "@/components/PortFolioOverlay";
 import { motion } from "motion/react";
+import { useState } from "react";
 
 const galleryItems = [
   {
@@ -25,6 +27,8 @@ const galleryItems = [
 ];
 
 export const RecentWorksSection = () => {
+  const [opened, setOpened] = useState<boolean>(false);
+
   return (
     <section className="section" id="recent-works">
       <div className="flex justify-between items-center">
@@ -45,12 +49,12 @@ export const RecentWorksSection = () => {
             <p className="header-section-subtitle">Selected highlights 2024—2025</p>
           </motion.div>
         </div>
-        <a
-          href="#portfolio"
-          className="text-xs uppercase tracking-[0.2em] border-b border-foreground pb-1 hover:opacity-50 transition-opacity"
+        <button
+          onClick={() => setOpened(true)}
+          className="text-xs uppercase tracking-[0.2em] border-b border-foreground pb-1 hover:opacity-50 transition-opacity cursor-pointer"
         >
           View All
-        </a>
+        </button>
       </div>
       {/* Container Slider */}
       <div className="w-full mt-3 hidden md:block">
@@ -73,6 +77,7 @@ export const RecentWorksSection = () => {
           scrollEase={0.04}
         />
       </div>
+      {opened && <PortfolioOverlay setOpened={setOpened} />}
     </section>
   );
 };

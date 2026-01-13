@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const runwayData = [
   {
+    id: 1,
     timeframe: "2026 (Upcoming)",
     event: "Brand Ambassador Mr A",
     location: "Upcoming Project",
@@ -15,6 +16,7 @@ const runwayData = [
     certificate: "./certificate/BA-MRA-A-2026.pdf",
   },
   {
+    id: 2,
     timeframe: "Dec 2025",
     event: "Bali Tendance & Annual Show Mr A",
     location: "Bali & Jakarta",
@@ -22,6 +24,7 @@ const runwayData = [
     certificate: "./certificate/annual-show-2025.pdf",
   },
   {
+    id: 3,
     timeframe: "Oct 2025",
     event: "Paris Fashion Week",
     location: "Paris, France",
@@ -29,6 +32,7 @@ const runwayData = [
     certificate: "./certificate/paris-fashion-week-2025.pdf",
   },
   {
+    id: 4,
     timeframe: "July 2025",
     event: "Indonesia Trend Fashion Week (ITFW)",
     location: "Jakarta",
@@ -36,18 +40,21 @@ const runwayData = [
     certificate: "./certificate/itfw-2025.pdf",
   },
   {
+    id: 5,
     timeframe: "June 2025",
     event: "Jakarta HUT MURI Event",
     location: "Jakarta",
     role: "Fashion Show Talent",
   },
   {
+    id: 6,
     timeframe: "May 2025",
     event: "Theater: EMOHOME (Acting Space)",
     location: "Graduation Performance",
     role: "Lead Cast / Performer",
   },
   {
+    id: 7,
     timeframe: "2025",
     event: "IMC CENTER School Portfolio",
     location: "Professional Studio",
@@ -77,7 +84,7 @@ export const RunwayHistorySection = () => {
         />
 
         {runwayData.map((item, index) => (
-          <div className="relative flex justify-end pb-10 sm:pb-15 md:pb-20 last:pb-10 pr-15 sm:pr-18">
+          <div key={item.id} className="relative flex justify-end pb-10 sm:pb-15 md:pb-20 last:pb-10 pr-15 sm:pr-18">
             <motion.div
               key={index}
               initial={{ opacity: 0, x: 30 }}

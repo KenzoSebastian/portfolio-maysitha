@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-import { Mail, Send, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button"; // Asumsi pakai shadcn/ui atau button custom
 import {
   Form,
@@ -11,10 +9,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
 import { Label } from "@/components/ui/label";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { sendEmailSchema, type SendEmailSchemaValue } from "@/schema/sendEmailSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
+import { Loader2, Mail, MapPin, Send } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 const formFields: { name: keyof SendEmailSchemaValue; label: string; placeholder: string }[] = [
@@ -24,31 +25,38 @@ const formFields: { name: keyof SendEmailSchemaValue; label: string; placeholder
 ];
 
 export const ContactSection = () => {
+  const [isDissabled, setIsDisabled] = useState<boolean>(false);
+
   const sendEmailForm = useForm<SendEmailSchemaValue>({
     resolver: zodResolver(sendEmailSchema),
   });
 
   const onSubmitSendEmailForm = async (data: SendEmailSchemaValue) => {
-    const endpoint = "https://formspree.io/f/mbdlndvq";
+    setIsDisabled(true);
+    const endpoint = import.meta.env.VITE_SEND_EMAIL_ENDPOINT;
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      toast.success("Your message has been sent.");
-    } else {
-      toast.error("Failed to send message. Please try again later.");
-      console.error("Failed to send message:", response.statusText);
+      if (response.ok) {
+        toast.success("Your message has been sent.");
+      } else {
+        toast.error("Failed to send message. Please try again later.");
+        console.error("Failed to send message:", response.statusText);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      sendEmailForm.reset({
+        fullname: "",
+        email: "",
+        message: "",
+      });
+      setIsDisabled(false);
     }
-
-    sendEmailForm.reset({
-      fullname: "",
-      email: "",
-      message: "",
-    });
   };
 
   return (
@@ -109,6 +117,7 @@ export const ContactSection = () => {
               <form className="space-y-6" onSubmit={sendEmailForm.handleSubmit(onSubmitSendEmailForm)}>
                 {formFields.map((fieldForm) => (
                   <FormField
+                    key={fieldForm.name}
                     control={sendEmailForm.control}
                     name={fieldForm.name}
                     render={({ field }) => (
@@ -118,24 +127,34 @@ export const ContactSection = () => {
                           <Label className="text-[10px] uppercase tracking-[0.2em] ml-1 flex flex-col items-start gap-3">
                             {fieldForm.label}
                             <Input
+                            autoComplete="off"
+                            autoCorrect="off"
+                            
                               {...field}
                               placeholder={fieldForm.placeholder}
-                              className="border border-border focus:border-primary"
+                              className="border border-accent-foreground focus:border-primary invalid:border-destructive"
                             />
                           </Label>
                         </FormControl>
                         <FormDescription />
-                        <FormMessage />
+                        <FormMessage/>
                       </FormItem>
                     )}
                   />
                 ))}
                 <Button
                   type="submit"
+                  disabled={isDissabled}
                   className="w-full py-6 rounded-full group flex justify-center items-center"
                 >
-                  Send Message
-                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {isDissabled ? (
+                    <Loader2 className="animate-spin" />
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </Button>
               </form>
             </Form>

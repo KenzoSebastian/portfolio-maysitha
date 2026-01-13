@@ -23,7 +23,7 @@ function App() {
     : document.documentElement.classList.remove("dark");
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center relative">
+    <div className="w-full flex flex-col items-center relative">
       <DotGrid
         dotSize={4}
         gap={15}
@@ -34,7 +34,7 @@ function App() {
         resistance={750}
         returnDuration={1.5}
       />
-      <div className="w-11/12 md:w-5/6 lg:max-w-7xl md:px-10 flex flex-col items-center relative">
+      <div className="app-container">
         <Navbar />
         <HeroSection />
         <AboutSection />
