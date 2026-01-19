@@ -5,24 +5,28 @@ import { useState } from "react";
 
 const galleryItems = [
   {
-    image: `./img/stack1.JPG`,
-    text: "events",
+    image: `./img/gallery/gallery5.jpeg`,
+    text: "ITFW",
   },
   {
-    image: `./img/stack2.JPG`,
-    text: "events",
+    image: `./img/gallery/gallery14.jpeg`,
+    text: "Paris Fashion Week",
   },
   {
-    image: `./img/stack3.JPG`,
-    text: "events",
+    image: `./img/gallery/gallery33.jpeg`,
+    text: "Photoshoot",
   },
   {
-    image: `./img/stack4.JPG`,
-    text: "events",
+    image: `./img/gallery/gallery39.jpeg`,
+    text: "Annual Show Mr A",
   },
   {
-    image: `./img/stack5.JPG`,
-    text: "events",
+    image: `./img/gallery/gallery60.jpeg`,
+    text: "Editorial Photoshoot",
+  },
+  {
+    image: `./img/gallery/gallery103.JPG`,
+    text: "Bali Tendance",
   },
 ];
 
