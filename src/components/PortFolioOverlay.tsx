@@ -45,7 +45,7 @@ export const PortfolioOverlay = ({ setOpened }: PortfolioOverlayProps) => {
           transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
           className="h-0.5 rounded-full bg-linear-to-r from-transparent via-primary to-transparent mb-5 md:mb-10"
         />
-        <Masonry items={items} stagger={0.2} />
+        <Masonry items={items} stagger={0.015} />
       </motion.div>
     </motion.div>
   );
