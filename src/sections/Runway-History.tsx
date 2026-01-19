@@ -20,7 +20,7 @@ const runwayData = [
     timeframe: "Dec 2025",
     event: "Bali Tendance & Annual Show Mr A",
     location: "Bali & Jakarta",
-    role: "Runway Model & Best Student IMC Center",
+    role: "Runway Anual Show MR. A",
     certificate: "./certificate/annual-show-2025.pdf",
   },
   {

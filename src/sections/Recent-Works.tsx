@@ -25,7 +25,7 @@ const galleryItems = [
     text: "Editorial Photoshoot",
   },
   {
-    image: `./img/gallery/gallery103.JPG`,
+    image: `./img/gallery/gallery103.jpg`,
     text: "Bali Tendance",
   },
 ];
