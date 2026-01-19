@@ -7,12 +7,16 @@ type PortfolioOverlayProps = {
 };
 
 const heightPattern = [400, 250, 600, 800, 300, 500];
-const imagesMap = import.meta.glob("/public/img/gallery/*.{png,jpg,jpeg,JPG}", { eager: true, as: "url" });
+const imagesMap = import.meta.glob("/public/img/gallery/*.{png,jpg,jpeg,JPG}", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
 
 const items: ItemMasonry[] = Object.values(imagesMap).map((url, index) => {
   return {
     id: index + 1,
-    img: url.replace("/public", ""),
+    img: (url as string).replace("/public", ""),
     height: heightPattern[index % heightPattern.length],
   };
 });
