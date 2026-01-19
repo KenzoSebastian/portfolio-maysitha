@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Menghubungkan ke sitemap
+Sitemap: https://maysitha-portfolio.com/sitemap.xml

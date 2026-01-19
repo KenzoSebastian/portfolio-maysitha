@@ -276,11 +276,11 @@ const Masonry: React.FC<MasonryProps> = ({
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="app-container bg-background rounded-lg shadow-xl max-h-[90vh] flex-row gap-5 justify-center overflow-hidden"
+            className="app-container bg-background rounded-lg shadow-xl max-h-[90vh] flex-row gap-5 justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="button-gallery -mr-15 sm:-mr-18  md:-mr-20 lg:mr-0"
+              className="button-gallery -mr-15 sm:-mr-18 md:-mr-20 lg:mr-0"
               onClick={handlePreviousClick}
             >
               <ChevronLeft color="#000000" className="w-12 h-12" />
