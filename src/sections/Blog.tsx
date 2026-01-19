@@ -9,7 +9,7 @@ const blogs = [
     Subtitle:
       "BERITAJURNALIS.NET | Paris, Prancis— Desainer Indonesia ternama, Hidayatul Mu’arifin, yang dikenal secara profesional",
     link: "https://www.beritajurnalis.net/hidayatul-muarifin-membawa-keanggunan-indonesia-ke-paris-city-fashion-week-2025",
-    thumbnail: "./blog-thumb/blog1.png",
+    thumbnail: "./blog-thumb/blog1.jpeg",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const blogs = [
     Subtitle:
       "KICAURAKYAT.ID | Paris, Prancis— Desainer Indonesia ternama, Hidayatul Mu’arifin, yang dikenal secara profesional",
     link: "https://www.kicaurakyat.id/hidayatul-muarifin-membawa-keanggunan-indonesia-ke-paris-city-fashion-week-2025",
-    thumbnail: "./blog-thumb/blog3.png",
+    thumbnail: "./blog-thumb/blog3.jpg",
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const blogs = [
     Subtitle:
       "DELIKSATU.COM | Paris, Prancis— Desainer Indonesia ternama, Hidayatul Mu’arifin, yang dikenal secara profesional",
     link: "https://deliksatu.com/maysitha-angelica-sucipto-remaja-berprestasi-asal-jakarta-yang-terpilih-sebagai-brand-ambassador-mr-a-2026/",
-    thumbnail: "./blog-thumb/blog4.png",
+    thumbnail: "./blog-thumb/blog4.jpg",
   },
 ];
 
