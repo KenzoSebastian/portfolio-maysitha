@@ -46,10 +46,11 @@ export const PortfolioOverlay = ({ setOpened }: PortfolioOverlayProps) => {
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="relative w-full max-w-7xl bg-background rounded-2xl shadow-xl overflow-y-auto overflow-x-hidden px-4 md:px-10"
+        className="relative w-full max-w-5xl bg-background rounded-2xl shadow-xl overflow-y-auto overflow-x-hidden px-4 md:px-10"
         onClick={(e) => e.stopPropagation()}
         style={{ WebkitOverflowScrolling: "touch" }}
       >
+        <span onClick={() => setOpened(false)} className="absolute top-4 right-4 cursor-pointer bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center font-inter hover:scale-110 transition-all lg:hidden">X</span>
         <div className="flex flex-col items-center w-full">
           <motion.h1
             initial={{ opacity: 0, y: -40 }}
