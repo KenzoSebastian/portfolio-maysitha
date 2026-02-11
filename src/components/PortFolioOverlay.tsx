@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import type { SetStateAction } from "react";
+import { useEffect, useState, type SetStateAction } from "react";
 import Masonry, { type ItemMasonry } from "./motion/Masonry";
 
 type PortfolioOverlayProps = {
@@ -22,34 +22,53 @@ const items: ItemMasonry[] = Object.values(imagesMap).map((url, index) => {
 });
 
 export const PortfolioOverlay = ({ setOpened }: PortfolioOverlayProps) => {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setReady(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="fixed inset-0 bg-black/80 backdrop-blur-md z-60 flex justify-center p-4"
+      className="fixed inset-0 bg-black/80 backdrop-blur-md z-100 flex justify-center p-4"
       onClick={() => setOpened(false)}
     >
       <motion.div
-        initial={{ scale: 0.5, opacity: 0 }}
+        initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="app-container bg-background rounded-lg shadow-xl overflow-y-scroll overflow-x-hiddenpx-3"
+        className="relative w-full max-w-7xl bg-background rounded-2xl shadow-xl overflow-y-auto overflow-x-hidden px-4 md:px-10"
         onClick={(e) => e.stopPropagation()}
+        style={{ WebkitOverflowScrolling: "touch" }}
       >
-        <motion.h1
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", type: "spring", delay: 0.5 }}
-          className="header-section-title my-10"
-        >
-          Gallery
-        </motion.h1>
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: "100%" }}
-          transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
-          className="h-0.5 rounded-full bg-linear-to-r from-transparent via-primary to-transparent mb-5 md:mb-10"
-        />
-        <Masonry items={items} stagger={0.015} />
+        <div className="flex flex-col items-center w-full">
+          <motion.h1
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", type: "spring", delay: 0.2 }}
+            className="header-section-title my-10"
+          >
+            Gallery
+          </motion.h1>
+
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
+            className="h-0.5 rounded-full bg-linear-to-r from-transparent via-primary to-transparent mb-10"
+          />
+
+          <div className="w-full pb-20">{ready && <Masonry items={items} stagger={0.015} />}</div>
+        </div>
       </motion.div>
     </motion.div>
   );
