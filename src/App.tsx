@@ -9,15 +9,23 @@ import { RunwayHistorySection } from "./sections/Runway-History";
 import { BlogSection } from "./sections/Blog";
 import { ContactSection } from "./sections/Contact";
 import { FooterSection } from "./sections/Footer";
+import { useEffect, useState } from "react";
 
 function App() {
   const { theme } = useTheme();
+  const [dotColor, setDotColor] = useState("rgba(0,0,0,0.1)");
 
-  const getCssVar = (varName: string) => {
-    const computedStyle = getComputedStyle(document.documentElement);
-    return computedStyle.getPropertyValue(varName).trim();
-  };
+  useEffect(() => {
+    const updateColor = () => {
+      const computedStyle = getComputedStyle(document.documentElement);
+      const color = computedStyle.getPropertyValue("--color-muted").trim();
+      if (color) setDotColor(color);
+    };
+    updateColor();
 
+    const timeoutId = setTimeout(updateColor, 100);
+    return () => clearTimeout(timeoutId);
+  }, [theme]);
   theme === "dark"
     ? document.documentElement.classList.add("dark")
     : document.documentElement.classList.remove("dark");
@@ -27,7 +35,7 @@ function App() {
       <DotGrid
         dotSize={4}
         gap={15}
-        baseColor={getCssVar("--color-muted")}
+        baseColor={dotColor}
         proximity={0}
         shockRadius={250}
         shockStrength={5}
