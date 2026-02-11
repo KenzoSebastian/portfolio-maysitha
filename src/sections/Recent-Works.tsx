@@ -24,10 +24,10 @@ const galleryItems = [
     image: `./img/gallery/gallery60.jpeg`,
     text: "Editorial Photoshoot",
   },
-  {
-    image: `./img/gallery/gallery102.jpg`,
-    text: "Bali Tendance",
-  },
+  // {
+  //   image: `./img/gallery/gallery102.jpg`,
+  //   text: "Bali Tendance",
+  // },
 ];
 
 export const RecentWorksSection = () => {
